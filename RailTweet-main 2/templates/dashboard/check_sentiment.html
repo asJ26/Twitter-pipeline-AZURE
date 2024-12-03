@@ -1,0 +1,19 @@
+{% if result %}
+<div class="alert alert-success">
+    <strong>Success!</strong> Sentiment analysis was successful.
+</div>
+
+<div>
+    <h4>{{ result.text }}</h4>
+    <p>
+        <strong>Sentiment:</strong> {{ result.score }}
+    </p>
+    <p>
+        <strong>Category:</strong> {{ result.category }} 
+    </p>
+</div>
+{% else %} 
+<div class="alert alert-danger">
+    <strong>Error!</strong> Sentiment analysis was unsuccessful.
+</div>
+{% endif %}

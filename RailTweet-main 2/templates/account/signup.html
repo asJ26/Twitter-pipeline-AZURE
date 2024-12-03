@@ -1,0 +1,116 @@
+{% extends "account/base.html" %}
+{% load i18n %}
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+<div class="col-12 col-md-5 col-xl-4 order-md-1 my-5">
+
+  <!-- Heading -->
+  <h1 class="display-4 text-center mb-3">
+    Sign Up
+  </h1>
+
+  <!-- Subheading -->
+  <p class="text-muted text-center mb-5">
+    You can create a account for free!
+  </p>
+
+  <!-- Form -->
+  <form method="POST" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+
+    {% include 'account/messages.html' %}
+    <!-- Email address -->
+    <div class="form-group">
+
+      <!-- Label -->
+      <label>Email Address</label>
+
+      <!-- Input -->
+      <input type="email" name="email" class="form-control" placeholder="name@address.com" required>
+    </div>
+
+    <!-- Email address -->
+    <div class="form-group">
+
+      <!-- Label -->
+      <label>Phone</label>
+
+      <!-- Input -->
+      <input type="text" name="username" class="form-control" placeholder="enter your phone" required>
+
+    </div>
+
+    <!-- Email address -->
+    <div class="form-group">
+
+      <!-- Label -->
+      <label>First name</label>
+
+      <!-- Input -->
+      <input type="text" name="first_name" class="form-control" placeholder="first name" required>
+
+    </div>
+
+    <!-- Email address -->
+    <div class="form-group">
+
+      <!-- Label -->
+      <label>Last name</label>
+
+      <!-- Input -->
+      <input type="text" name="last_name" class="form-control" placeholder="last name" required>
+
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+
+      <div class="row">
+        <div class="col">
+
+          <!-- Label -->
+          <label>Password</label>
+
+        </div>
+
+      </div> <!-- / .row -->
+
+      <!-- Input group -->
+      <div class="input-group input-group-merge">
+
+        <!-- Input -->
+        <input type="password" name="password1" class="form-control form-control-appended"
+          placeholder="Enter your password" required>
+
+        <!-- Icon -->
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <i class="fe fe-eye"></i>
+          </span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <button class="btn btn-lg btn-block btn-primary mb-3">
+      Sign in
+    </button>
+
+    <!-- Link -->
+    <div class="text-center">
+      <small class="text-muted text-center">
+        {% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}
+      </small>
+    </div>
+
+  </form>
+
+</div>
+
+
+{% endblock %}

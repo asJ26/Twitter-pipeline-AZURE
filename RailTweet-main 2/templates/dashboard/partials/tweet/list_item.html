@@ -1,0 +1,40 @@
+<div class="list-group-item">
+    <div class="row">
+      <div class="col-auto">
+
+        <!-- Avatar -->
+        <div class="avatar avatar-sm avatar-online">
+          <img class="avatar-img rounded-circle" src="{{ item.user.profile_image_url }}" alt="{{ item.user.name }}" />
+        </div>
+
+      </div>
+      <div class="col ms-n2">
+
+        <!-- Heading -->
+        <h5 class="mb-1">
+          {% if item.user.name %} {{ item.user.name }} {% else %} {{ item.username }} {% endif %}
+        </h5>
+
+        <!-- Text -->
+        <p class="small text-gray-700 mb-0">
+          <a href="">{{ item.text }}</a>
+        </p>
+
+        <!-- Time -->
+        <small class="text-muted">
+          {% if item.created_at %} {{ item.created_at }} {% else %} {{ item.created }} {% endif %} || 
+           Negative/Positive : <b> {% if item.is_negative %} Negative {% else %} Positive {% endif %}</b> ||
+           Score : <b> {{ item.score }}</b>
+          Emergency/Feedback : <b> {% if item.is_emergency %} Emergency {% else %} Feedback (Or not processed) {% endif %} </b>
+         </small>
+
+         <br>
+
+         <small>
+           <a href="{% url 'test' item.id %}"> Update Classification </a> || 
+           <a href="{% url 'check_sentiment' item.id %}"> Update Sentiment </a>
+         </small>
+
+      </div>
+    </div> <!-- / .row -->
+  </div>

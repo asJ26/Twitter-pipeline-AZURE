@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django-allauth = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
+django-cors-headers = "*"
+django-rest-auth = "*"
+django-url-filter = "*"
+django = "*"
+pillow = "*"
+helpers = "*"
+twint = {git = "https://github.com/twintproject/twint.git"}
+numpy = "*"
+bs4 = "*"
+beautifulsoup4 = "*"
+torch = "*"
+torchvision = "*"
+torchaudio = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.9"
